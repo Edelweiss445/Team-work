@@ -48,12 +48,13 @@ public class Main {
                 }
 
                 if (isOnSale) {
-                    sum += prices[i] * (counts[i] / 3 * 2 + counts[i] % 3);
-                    System.out.println("\t" + products[i] + " " + (sum >= MIN_COST_FOR_BONUS ? counts[i] + 1 : counts[i]) + " шт. за " + (prices[i] * (counts[i] / 3 * 2 + counts[i] % 3)) + " руб. (распродажа!)");
+                    int itemsSumCurrent = prices[i] * (counts[i] / 3 * 2 + counts[i] % 3);
+                    sum += itemsSumCurrent;
+                    System.out.println("\t" + products[i] + " " + (itemsSumCurrent >= MIN_COST_FOR_BONUS ? counts[i] + 1 : counts[i]) + " шт. за " + itemsSumCurrent + " руб. (распродажа!)");
                 } else {
-                    sum += prices[i] * counts[i];
-                    System.out.println("\t" + products[i] + " " + (sum >= MIN_COST_FOR_BONUS ? counts[i] + 1 : counts[i]) + " шт. за " + (prices[i] * counts[i]) + " руб.");
-
+                    int itemsSumCurrent = prices[i] * counts[i];
+                    sum += itemsSumCurrent;
+                    System.out.println("\t" + products[i] + " " + (itemsSumCurrent >= MIN_COST_FOR_BONUS ? counts[i] + 1 : counts[i]) + " шт. за " + itemsSumCurrent + " руб.");
                 }
             }
         }
